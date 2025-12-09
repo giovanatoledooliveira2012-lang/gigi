@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Moderno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: rgba(70, 50, 120, 0.95);
+            padding: 30px 20px;
+            box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .menu {
+            list-style: none;
+        }
+
+        .menu li {
+            margin-bottom: 15px;
+        }
+
+        .menu button {
+            width: 100%;
+            padding: 12px 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .menu button:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: translateX(5px);
+        }
+
+        .menu button.active {
+            background: #fff;
+            color: #764ba2;
+        }
+
+        .content {
+            flex: 1;
+            padding: 50px;
+            overflow-y: auto;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .section h1 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .section p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"> coded</div>
+        <ul class="menu">
+            <li><button class="menu-btn active" data-section="home">Home</button></li>
+            <li><button class="menu-btn" data-section="sobre">Sobre</button></li>
+            <li><button class="menu-btn" data-section="contato">Contato</button></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div id="home" class="section active">
+            <h1>Bem-vindo!</h1>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIWZdT01fkn6j7hoBdxD620MONztD3MM8BkA&s.jpg">
+            <p>Explore nosso site moderno e elegante com design responsivo.</p>
+            <div class="card">
+                <p>✨ Este é um exemplo de conteúdo dinâmico. Clique nos itens do menu lateral para explorar!</p>
+            </div>
+        </div>
+
+        <div id="sobre" class="section">
+            <h1>Sobre Nós</h1>
+            <p>Somos uma equipe dedicada à criação de experiências digitais incríveis.</p>
+            <div class="card">
+                <p>💡 Inovação, design e qualidade são nossos pilares.</p>
+            </div>
+        </div>
+
+        <div id="contato" class="section">
+            <h1>Entre em Contato</h1>
+            <p>Gostaria de conversar conosco? Aqui estão as formas de nos contactar.</p>
+            <div class="card">
+                <p>📧 Email: contato@studio.com</p>
+                <p>📱 Telefone: (11) 9999-9999</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.menu-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                
+                button.classList.add('active');
+                const sectionId = button.dataset.section;
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
