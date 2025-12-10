@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Moderno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe6d5 100%);
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #ff8c42 0%, #ff6b35 100%);
+            padding: 40px 20px;
+            box-shadow: 2px 0 10px rgba(255, 107, 53, 0.3);
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .menu-item {
+            padding: 15px 20px;
+            margin: 10px 0;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: left;
+        }
+
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .menu-item.active {
+            background: white;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        .content {
+            flex: 1;
+            padding: 60px;
+            overflow-y: auto;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #ff6b35;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.1);
+            border-left: 4px solid #ff8c42;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">🟠 Marte</div>
+        <button class="menu-item active" onclick="showPage('home')">Home</button>
+        <button class="menu-item" onclick="showPage('sobre')">Sobre</button>
+        <button class="menu-item" onclick="showPage('servicos')">Serviços</button>
+        <button class="menu-item" onclick="showPage('contato')">Contato</button>
+    </div>
+
+    <div class="content">
+        <div id="home" class="page active">
+            <h1>Bem-vindo!</h1>
+            <p>Explore nosso site moderno com design elegante e cores vibrantes.</p>
+            <div class="card">
+                <h2 style="color: #ff8c42;">✨ Experiência Premium</h2>
+                <p>Navegação intuitiva e conteúdo dinâmico para melhor experiência do usuário.</p>
+            </div>
+        </div>
+
+        <div id="sobre" class="page">
+            <h1>Sobre Nós</h1>
+            <p>Somos uma equipe dedicada a criar experiências web incríveis.</p>
+            <div class="card">
+                <h2 style="color: #ff8c42;">📋 Nossa Missão</h2>
+                <p>Desenvolver soluções web modernas, responsivas e acessíveis para nossos clientes.</p>
+            </div>
+        </div>
+
+        <div id="servicos" class="page">
+            <h1>Serviços</h1>
+            <p>Oferecemos uma variedade de serviços web profissionais.</p>
+            <div class="card">
+                <h2 style="color: #ff8c42;">🎨 Design Web</h2>
+                <p>Criação de interfaces modernas e atrativas com as melhores práticas de UX/UI.</p>
+            </div>
+            <div class="card">
+                <h2 style="color: #ff8c42;">💻 Desenvolvimento</h2>
+                <p>Desenvolvimento de sites e aplicações web responsivas e performáticas.</p>
+            </div>
+        </div>
+
+        <div id="contato" class="page">
+            <h1>Contato</h1>
+            <p>Entre em contato conosco para mais informações.</p>
+            <div class="card">
+                <h2 style="color: #ff8c42;">📧 Email</h2>
+                <p>contato@example.com</p>
+            </div>
+            <div class="card">
+                <h2 style="color: #ff8c42;">📱 Telefone</h2>
+                <p>(11) 99999-9999</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Esconder todas as páginas
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Remover classe active de todos os botões
+            document.querySelectorAll('.menu-item').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Mostrar página selecionada
+            document.getElementById(pageId).classList.add('active');
+
+            // Adicionar classe active ao botão clicado
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
