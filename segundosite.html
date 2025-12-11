@@ -88,6 +88,10 @@
             color: #ff6b35;
             margin-bottom: 20px;
             font-size: 36px;
+  font-family: "Playwrite NO", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
         }
 
         p {
@@ -105,6 +109,9 @@
             border-left: 4px solid #ff8c42;
         }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+NO:wght@100..400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
@@ -113,6 +120,7 @@
         <button class="menu-item" onclick="showPage('sobre')">Sobre</button>
         <button class="menu-item" onclick="showPage('servicos')">Serviços</button>
         <button class="menu-item" onclick="showPage('contato')">Contato</button>
+        <button class="menu-item" onclick="showPage('fim')">Fim</button>
     </div>
 
     <div class="content">
@@ -120,7 +128,7 @@
             <h1>Bem-vindo!</h1>
             <p>Explore nosso site moderno com design elegante e cores vibrantes.</p>
             <div class="card">
-                <h2 style="color: #ff8c42;">✨ Experiência Premium</h2>
+                <h2 style="color: #af5b27;">✨ Experiência Premium</h2>
                 <p>Navegação intuitiva e conteúdo dinâmico para melhor experiência do usuário.</p>
             </div>
         </div>
@@ -159,6 +167,19 @@
                 <p>(11) 99999-9999</p>
             </div>
         </div>
+
+         <div id="fim" class="page">
+            <h1>Fim</h1>
+            <p>deixe seu comentario aqui.</p>
+            <div class="card">
+                <h2 style="color: #ff8c42;">📧 Email</h2>
+                <p>contato@example.com</p>
+            </div>
+            <div class="card">
+                <h2 style="color: #ff8c42;">📱 Telefone</h2>
+                <p>(11) 99999-9999</p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -180,5 +201,13 @@
             event.target.classList.add('active');
         }
     </script>
+
+<script src="https://cdn.botpress.cloud/webchat/v3.5/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/12/10/18/20251210185152-LYEBTLN7.js" defer></script>
+    
 </body>
 </html>
+
+
+
+    
